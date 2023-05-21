@@ -1,5 +1,5 @@
 from asserts.api_asserts import delete_all_text_cases
-from taf.tools.test_data_provider import get_test_data
+from tools.test_data_provider import get_test_data
 import pytest
 
 
