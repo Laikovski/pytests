@@ -1,0 +1,4 @@
+2023-05-21 13:31:57 [INFO] Get test name test_smoke (test_data_provider.py:25)
+2023-05-21 13:31:57 [INFO] Get full test data by path: C:\Users\Eugenio_Laikovski\Desktop\repos\tests\pytests\tests\test_data.yml (test_data_provider.py:29)
+2023-05-21 13:31:57 [INFO] Get expected response code (conftest.py:44)
+2023-05-21 13:31:57 [INFO] Soft check 'status code' for test: [Smoke] Check authentication (api_asserts.py:18)

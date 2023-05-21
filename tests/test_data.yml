@@ -1,0 +1,36 @@
+general:
+  username: test
+  password: test
+
+test_sets:
+  test_smoke:
+    test_id: test-001
+    test_name: '[Smoke] Check authentication'
+    status_code: 200
+
+  test_get_all_test_cases:
+    test_id: test-002
+    test_name: '[Positive] Get all test cases'
+    end_point: '/test_cases'
+    status_code: 200
+
+  test_delete_all_test_cases:
+    test_id: test-003
+    test_name: '[Positive] Delete all test cases'
+    end_point: '/test_cases'
+    status_code: 200
+
+  test_create_test_case:
+    test_id: test-004
+    test_name: '[Positive] Create test case'
+    end_point: '/test_cases'
+    status_code: 200
+    message: 'Test case successfully added'
+
+  test_login_with_wrong_creds:
+    test_id: test-005
+    test_name: '[Negative] Auth with wrong credentials'
+    username: wrong
+    password: wrong
+    status_code: 401
+    message: "No such username or password"
