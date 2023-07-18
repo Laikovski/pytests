@@ -3,11 +3,12 @@ name: Docker Test
 on:
   push:
     branches:
-      - main  # Replace with the branch you want to trigger the action on
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -18,7 +19,11 @@ jobs:
       - name: Run Docker container with secret variable
         env:
           TEST_KEY: ${{ secrets.TEST_KEY }}
-        run: docker run -e "TEST_KEY=$TEST_KEY" my_test_image
+        run: docker run -e TEST_KEY=${{ secrets.TEST_KEY }} my_test_image
 
       - name: Check if the container is running
-        run: printenv
+        run: docker ps
+
+      - name: Display TEST_KEY inside the container
+        run: docker logs my_test_image | grep TEST_KEY
+
