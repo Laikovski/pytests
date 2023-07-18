@@ -19,11 +19,12 @@ jobs:
       - name: Run Docker container with secret variable
         env:
           TEST_KEY: ${{ secrets.TEST_KEY }}
-        run: docker run -e TEST_KEY=${{ secrets.TEST_KEY }} my_test_image
+        run: docker run -e TEST_KEY=${{ secrets.TEST_KEY }} --name my_test_container my_test_image
 
       - name: Check if the container is running
         run: docker ps
 
       - name: Display TEST_KEY inside the container
-        run: docker logs my_test_image | grep TEST_KEY
+        run: docker logs my_test_container | grep TEST_KEY
+
 
