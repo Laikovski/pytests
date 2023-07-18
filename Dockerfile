@@ -6,7 +6,6 @@ WORKDIR /clocker-tests
 
 COPY requirements.txt /
 COPY . .
-COPY docker_entrypoint.sh /
 
 ENV PYTHONPATH="."
 ENV CI_SERVER="yes"
