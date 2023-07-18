@@ -14,7 +14,4 @@ RUN apt-get update
 RUN apt-get -y install gdebi-core
 RUN pip3 install -r requirements.txt
 
-RUN chmod +x docker_entrypoint.sh
-
 CMD ['export', 'export', 'PYTHONPATH="$(pwd)"']
-ENTRYPOINT ["./docker_entrypoint.sh"]
