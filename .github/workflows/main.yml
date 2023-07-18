@@ -7,8 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # You can choose a different runner if needed
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -16,8 +15,10 @@ jobs:
       - name: Build Docker image
         run: docker build -t my_test_image .
 
-      - name: Run Docker container
-        run: docker run my_test_image
-        
+      - name: Run Docker container with secret variable
+        env:
+          TEST_KEY: ${{ secrets.TEST_KEY }}
+        run: docker run -e "TEST_KEY=$TEST_KEY" my_test_image
+
       - name: Check if the container is running
         run: printenv
