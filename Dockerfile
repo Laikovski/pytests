@@ -16,4 +16,5 @@ RUN pip3 install -r requirements.txt
 
 ENV GLOBAL_VARIABLE="your_value"
 
-
+# Добавляем CMD команду для вывода значения переменной TEST_KEY
+CMD echo "TEST_KEY=$TEST_KEY"
