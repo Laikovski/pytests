@@ -1,0 +1,23 @@
+name: Docker Test
+
+on:
+  push:
+    branches:
+      - main  # Replace with the branch you want to trigger the action on
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # You can choose a different runner if needed
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker image
+        run: docker build -t my_test_image .
+
+      - name: Run Docker container
+        run: docker run my_test_image
+        
+      - name: Check if the container is running
+        run: docker ps | grep my_test_container
