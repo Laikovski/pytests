@@ -12,8 +12,6 @@ ENV CI_SERVER="yes"
 
 RUN apt-get update
 RUN apt-get -y install gdebi-core
-RUN wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_88.0.4324.96-1_amd64.deb
-RUN gdebi -n ./google-chrome*.deb || echo "Error on installing google chrome"
 RUN pip3 install -r requirements.txt
 
 RUN chmod +x docker_entrypoint.sh
