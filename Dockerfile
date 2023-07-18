@@ -14,4 +14,4 @@ RUN apt-get update
 RUN apt-get -y install gdebi-core
 RUN pip3 install -r requirements.txt
 
-CMD ['export', 'export', 'PYTHONPATH="$(pwd)"']
+CMD ["export", "PYTHONPATH=$(pwd)"]
