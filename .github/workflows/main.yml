@@ -1,17 +1,19 @@
-name: Docker Test
+name: Run Tests
 
 on:
-  push:
-    branches:
-      - main
+  repository_dispatch:
+    types: [run_tests]
 
 jobs:
-  test:
+  test_job:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout pytests repository
         uses: actions/checkout@v2
+        with:
+          repository: Laikovski/pytests
+          ref: main
 
       - name: Build Docker image
         run: docker build -t my_test_image .
@@ -26,5 +28,4 @@ jobs:
 
       - name: Display TEST_KEY inside the container
         run: docker logs my_test_container | grep TEST_KEY
-
 
